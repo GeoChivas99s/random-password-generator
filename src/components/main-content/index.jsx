@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
+
 
 const MainContentWrapper = styled.div`
   background: rgba(255, 255, 255, 0.25);
