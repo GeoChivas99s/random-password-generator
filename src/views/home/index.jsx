@@ -12,7 +12,7 @@ function Home() {
   }, []);
 
   return (
-    <> {loading ? <Splash/> : <Main><MainContent/></Main>} </>
+    <> {loading ? <Splash/> : <Main/>} </>
   )
 }
 

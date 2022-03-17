@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
-
+import { ToastContainer, toast } from "react-toastify";
+import MainContent from '../main-content';
 
 const MainWrapper = styled.main`
 background-image: linear-gradient( 43deg , #4158d0 0%, #c850c0 46% , #ffcc70 100%);
@@ -16,9 +17,24 @@ text-align:center;
 
 
 function Main({children}) {
+    function handleNotify(){
+        toast.success("Password copiada no clipboard", 
+     {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+     }
+     );
+    }
   return (
-    <MainWrapper>{children}</MainWrapper>
-  )
+    <MainWrapper >
+      <MainContent  handeToast = {()=>handleNotify()}  />
+      <ToastContainer/>
+    </MainWrapper>)
 }
 
 export default Main;

@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 const MainContentWrapper = styled.div`
   background: rgba(255, 255, 255, 0.25);
@@ -9,10 +10,11 @@ const MainContentWrapper = styled.div`
   -webkit-background-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 100px 200px;
+  padding: 100px 0px;
+  width: 90%;
 
   .password {
-    font-size: 60px;
+    font-size: 50px;
     color: white;
     padding-bottom: 20px;
   }
@@ -23,23 +25,37 @@ const MainContentWrapper = styled.div`
     outline: none;
     padding: 20px 40px;
     font-size: 18px;
-    cursor:pointer;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  @media (max-width: 776px) {
+    .password {
+      font-size: 25px;
+    }
   }
 `;
 
-function MainContent() {
-
- const [password, setPassword] = useState('******************');
-
-  const generatePassword = () =>{
-   const randomPassword = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2) ;
-   setPassword(randomPassword);
-  }
+function MainContent(props) {
+  const [password, setPassword] = useState("******************");
+  const { handeToast } = props;
+  const generatePassword = () => {
+    const randomPassword =
+      Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
+    setPassword(randomPassword);
+    navigator.clipboard.writeText(randomPassword);
+    if (navigator.clipboard.writeText(randomPassword)) {
+  handeToast();
+       
+    }
+  };
 
   return (
     <MainContentWrapper>
       <div className="password">{password}</div>
-      <button onClick={generatePassword} className="gerar-senha"> Gerar senha</button>
+      <button onClick={generatePassword} className="gerar-senha">
+        Gerar senha
+      </button>
+
     </MainContentWrapper>
   );
 }
