@@ -12,6 +12,10 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 text-align:center;
+.copyright{
+    color:white;
+    font-size:12px;
+}
 .title{
     color:white;
   font-size:45px;
@@ -43,6 +47,7 @@ function Main() {
     <MainWrapper >
         <h1 className='title'>Gerador de Senha </h1>
       <MainContent  handeToast = {()=>handleNotify()}  />
+      <p className='copyright'> Developed by @GeoChivas99s</p>
       <ToastContainer/>
     </MainWrapper>)
 }
