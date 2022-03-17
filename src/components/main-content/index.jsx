@@ -11,7 +11,7 @@ const MainContentWrapper = styled.div`
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 100px 0px;
-  width: 90%;
+  width: 85%;
 
   .password {
     font-size: 50px;

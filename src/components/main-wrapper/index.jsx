@@ -12,13 +12,22 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 text-align:center;
+.title{
+    color:white;
+  font-size:45px;
+  padding-bottom:10px;
+  text-transform:uppercase;
+  @media(max-width:776px){
+      font-size:40px;
+  }
+}
 `;
 
 
 
-function Main({children}) {
+function Main() {
     function handleNotify(){
-        toast.success("Password copiada no clipboard", 
+        toast.success("Senha copiada no clipboard", 
      {
         position: "top-right",
         autoClose: 5000,
@@ -32,6 +41,7 @@ function Main({children}) {
     }
   return (
     <MainWrapper >
+        <h1 className='title'>Gerador de Senha </h1>
       <MainContent  handeToast = {()=>handleNotify()}  />
       <ToastContainer/>
     </MainWrapper>)
